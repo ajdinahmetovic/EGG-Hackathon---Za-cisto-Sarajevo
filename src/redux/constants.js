@@ -1,0 +1,3 @@
+export const CHANGE_ICON_HOME = 'CHANGE_ICON_HOME';
+export const CHANGE_ICON_NFC = 'CHANGE_ICON_NFC';
+

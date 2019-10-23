@@ -11,6 +11,7 @@ import Scanner from './src/views/Scanner';
 
 import {Provider} from 'react-redux'
 import store from './src/redux/store'
+import HomeIcon from './src/components/HomeIcon';
 
 const TabNavigator = createBottomTabNavigator ({
   Notifications: {
@@ -24,7 +25,7 @@ const TabNavigator = createBottomTabNavigator ({
     screen: Scanner,
     navigationOptions: {
       tabBarLabel: 'Scanner',
-      tabBarIcon: () => <Image source={require('./src/assets/nfcScan.png')} style={{ marginBottom: 60, width:73, height: 73}}/>
+      tabBarIcon: () => <HomeIcon/>
     }
   },
   Profile: {
@@ -35,7 +36,9 @@ const TabNavigator = createBottomTabNavigator ({
     }
   }
 },
+
 {
+  initialRouteName: "Scanner",
   tabBarOptions: {
       showIcon: true,
       showLabel: false,
@@ -46,9 +49,8 @@ const TabNavigator = createBottomTabNavigator ({
               height: 66,
       },
   },
-}
-
-);
+  
+},);
 
 let BottomTabNavigation = createAppContainer(TabNavigator);
 

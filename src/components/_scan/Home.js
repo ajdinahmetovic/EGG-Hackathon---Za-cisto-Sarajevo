@@ -6,7 +6,7 @@ import {
     ImageBackground,
     Text,
     TouchableOpacity,
-    KeyboardAvoidingView,
+    Image,
     ScrollView
 } from 'react-native';
 
@@ -21,12 +21,6 @@ class Home extends React.Component {
   render() {
     return(
         <View style={styles.container}>
-          
-        <View style={styles.title}>
-            <Text style={styles.titleTxt}>
-                Skeniraj NFC
-            </Text>
-        </View>
         <ImageBackground 
             style={styles.card} 
             source={require('../../assets/cardExample.png')}>
@@ -40,11 +34,16 @@ class Home extends React.Component {
         </ImageBackground>
             <View 
                 style={[styles.title, {marginTop: 29}]}>
-                <Text  
-                    style={styles.searchTitle}>
-                    Lokacije kontejnera
-                </Text>
-                    <Search/>
+                    <View style={styles.box}>
+                        <Text  
+                            style={styles.searchTitle}>
+                                Lokacije kontejnera
+                        </Text>
+                        <TouchableOpacity onPress={() => this.props.navigation.navigate('Search')}>
+                            <Image style={{width: 17.7, height: 17.7, margin: 10, marginLeft: 100, marginTop: 3}} source={require('../../assets/search.png')}/>
+                        </TouchableOpacity>
+                    </View>
+              
                     <ScrollView
                         style={{height: 320}}
                         showsVerticalScrollIndicator={false}
@@ -52,7 +51,6 @@ class Home extends React.Component {
                         <ContainerLocationsList/>
                         <View style={{height: 100}}/>
                     </ScrollView>
-
             </View>
     </View>
     )
@@ -65,6 +63,10 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         paddingTop: 26,
+    },
+    box: {
+        flexDirection: 'row',
+
     },
     title: {
         width: 327,
@@ -96,6 +98,7 @@ const styles = StyleSheet.create({
         fontSize: 14,
     },
     searchTitle:{
+        marginBottom: 24,
         fontSize: 20,
         fontFamily: 'Montserrat-Medium',
     }
